@@ -50,33 +50,17 @@ class WelcomeScreen extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.cyan[200], fontSize: 30),
                   ),
                   TextSpan(
-                    text: "Recording",
+                    text: "Symptoms",
                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 50),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-                width: MediaQuery.of(context).size.width * .5,
-                child: RoundedButton(
-                  text: "Start Recording",
-                  fontSize: 18,
-                  press: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return HomeScreen();
-                        },
-                      ),
-                    );
-                  },
-                )
-            ),
+
             SizedBox(
               width: MediaQuery.of(context).size.width * .5,
               child: RoundedButton(
-                text: "Symptom Tracker",
+                text: "Symptom Query",
                 fontSize: 18,
                 press: () {
                   Navigator.push(

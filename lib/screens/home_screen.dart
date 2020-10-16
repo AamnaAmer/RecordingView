@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recording_page/widgets/rounded_button.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[200],
+      backgroundColor: const Color.fromRGBO(126, 174, 214, 1.0),
       body: getBody(),
     );
   }
@@ -42,7 +43,7 @@ class _DetailPageState extends State<DetailPage> {
                 Navigator.pop(context);
               },
               child: Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Icon(Icons.arrow_back_ios,color: Colors.black,),
               ),
             ),
@@ -57,24 +58,24 @@ class _DetailPageState extends State<DetailPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text("Symptom\nTracker",style: TextStyle(
+                            Text("",style: TextStyle(
                               height:1.7,
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
                               color: Colors.white,
                             ),),
-                            Image.asset("assets/images/book-3.png")
+                            Image.asset("assets/images/image-1.PNG")
                           ],
                         ),),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 170),
+                      padding: const EdgeInsets.only(top: 190),
                       child: Container(
                         clipBehavior: Clip.hardEdge,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            color: Color(0xFF1d263b),
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(70))
+                            color: const Color.fromRGBO(29, 26, 87, 1.0),
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(70), topRight: Radius.circular(70))
                         ),
                         child:  ListView(
                           padding: EdgeInsets.only(
@@ -84,67 +85,33 @@ class _DetailPageState extends State<DetailPage> {
                               top:45
                           ),
                           children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                Container(
-                                  child: Stack(
-                                    children: <Widget>[
-                                      Container(
-                                        height: 4,
-                                        width: 60,
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(4)
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 3,
-                                        width: size.width - 120,
-                                        decoration: BoxDecoration(
-                                            color: Colors.white.withOpacity(0.2),
-                                            borderRadius: BorderRadius.circular(4)
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(width: 10,),
-                                Text("1/10",style: TextStyle(color: Colors.white,),)
-                              ],
-                            ),
-                            SizedBox(height: 40,),
-                            Text("Have you\nexperienced any\nof the following\nsymptoms:",style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold,color: Colors.white,height: 1.6),),
-                            SizedBox(height: 40,),
-                            Text("Fever, Cough, Sneezing,\nSore Throat, Difficult Breathing",style: TextStyle(
-                              height: 1.7,
+                            SizedBox(height: 10,),
+                            Text("Symptom Query: A Fast & Accurate Health Assessment",style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold,color: Colors.white,height: 1.4),),
+                            SizedBox(height: 20,),
+                            Text("Symptom Query is designed to help you understand what your medical symptoms could mean using AI-driven software.",style: TextStyle(
+                              height: 1.2,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                              fontSize: 18,
                               color: Colors.white,
                             ),),
-                            SizedBox(height: 40,),
-                            Row(
-                              children: <Widget>[
-                                Container(
-                                  width: (size.width -120) /2  ,
-                                  child: FlatButton(
-                                      color: Colors.white,
-                                      onPressed: (){
-                                        // your no function here
-                                      }, child: Text("No",style: TextStyle(fontSize: 18),)),
+                            SizedBox(height: 20,),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * .5,
+                          child: RoundedButton(
+                            text: "See Possible Causes",
+                            fontSize: 18,
+                            press: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return DetailPage();
+                                  },
                                 ),
-                                SizedBox(width: 40,),
-                                Container(
-                                  width: (size.width -120) /2  ,
-                                  child: FlatButton(
-                                      color: Colors.white,
-                                      onPressed: (){
-                                        // your yes function here
-                                      }, child: Text("Yes",style: TextStyle(fontSize: 18),)),
-
-                                ),
-                              ],
-                            )
-                          ],
+                              );
+                            },
+                          ),
+                        ),],
                         ),
                       ),
                     )
