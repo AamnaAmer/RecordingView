@@ -13,12 +13,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Recording App',
       theme: ThemeData(
+        highlightColor: Colors.transparent,
         scaffoldBackgroundColor: Colors.white,
         textTheme: Theme.of(context).textTheme.apply(
           displayColor: kBlackColor,
         ),
       ),
       home: WelcomeScreen(),
+
     );
   }
 }
@@ -58,7 +60,18 @@ class WelcomeScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * .5,
                 child: RoundedButton(
                   text: "Start Recording",
-                  fontSize: 18,)
+                  fontSize: 18,
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return HomeScreen();
+                        },
+                      ),
+                    );
+                  },
+                )
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * .5,
@@ -70,7 +83,7 @@ class WelcomeScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return HomeScreen();
+                        return DetailPage();
                       },
                     ),
                   );
