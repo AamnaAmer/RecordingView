@@ -7,11 +7,13 @@ class RoundedButton extends StatelessWidget {
   final double verticalPadding;
   final double horizontalPadding;
   final double fontSize;
+  final Function onTap;
 
   RoundedButton({
     Key key,
     this.text,
     this.press,
+    this.onTap,
     this.verticalPadding = 16,
     this.horizontalPadding = 30,
     this.fontSize = 16,
@@ -24,7 +26,7 @@ class RoundedButton extends StatelessWidget {
       child: Container(
         width: double.infinity,
         alignment: Alignment.center,
-        margin: EdgeInsets.symmetric(vertical: 16),
+        margin: EdgeInsets.symmetric(vertical: 10),
         padding:
         EdgeInsets.symmetric(vertical: verticalPadding, horizontal: horizontalPadding),
         decoration: BoxDecoration(
