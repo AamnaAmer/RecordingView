@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:recording_page/widgets/PDF.dart';
 import 'package:recording_page/widgets/rounded_button.dart';
 import 'dart:math';
 import 'dart:typed_data';
@@ -261,18 +262,8 @@ class _SymptomChecker extends State<SymptomChecker> {
                           SizedBox(
                               width: MediaQuery.of(context).size.width * .5,
                               child: FloatingActionButton(
-                                onPressed: () async{
-                                  writeOnPdf();
-                                  await savePdf();
-                                  Directory documentDirectory = await getApplicationDocumentsDirectory();
-
-                                  String documentPath = documentDirectory.path;
-
-                                  String fullPath = "$documentPath/example.pdf";
-
-                                  Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) => PdfPreviewScreen(path: fullPath,)
-                                  ));
+                                onPressed: () {
+                                  reportView(context);
                                 },
                                 child: Icon(Icons.share)
                               ),
@@ -290,5 +281,7 @@ class _SymptomChecker extends State<SymptomChecker> {
     );
   }
 }
+
+
 
 
