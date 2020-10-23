@@ -9,6 +9,7 @@ reportView(context) async {
   final Document pdf = Document();
 
   pdf.addPage(MultiPage(
+
       pageFormat:
       PdfPageFormat.letter.copyWith(marginBottom: 1.5 * PdfPageFormat.cm),
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +24,7 @@ reportView(context) async {
             decoration: const BoxDecoration(
                 border:
                 BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)),
-            child: Text('Report',
+            child: Text('Remote Vitals Report for Patient (Insert Name)',
                 style: Theme.of(context)
                     .defaultTextStyle
                     .copyWith(color: PdfColors.grey)));
@@ -46,32 +47,27 @@ reportView(context) async {
                   Text('Report', textScaleFactor: 2),
                   PdfLogo()
                 ])),
-        Header(level: 1, text: 'What is Lorem Ipsum?'),
+        Header(level: 1, text: 'General Information'),
         Paragraph(
             text:
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+            '(Insert Name) is a/an (Insert Age) years old (Insert Sex). This report was compiled on (Enter Date & Time). The user is experiencing the following symptoms: (insert symptoms). The heartbeat and breathing rate was measured at: (insert values). For the sake of quality control and assurance, please view the graphs before making a diagnosis, as it contains pertinent information.'),
         Paragraph(
             text:
-            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using "Content here, content here", making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for "lorem ipsum" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
-        Header(level: 1, text: 'Where does it come from?'),
+      ' Note: The information contained in this message may be privileged and confidential and protected from disclosure. If the reader of this message is not the intended recipient, or an employee or agent responsible for delivering this message to the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this communication is strictly prohibited. If you have received this communication in error, please notify us immediately by emailing remotevitals@gmail.com. Please also destroy any hard copies and delete this message from your computer. Opinions, conclusions, and any other information in this message that do not relate to the official business of our firm shall be understood as neither given nor endorsed by it.'),
+        Header(level: 1, text: 'Summarized Information'),
         Paragraph(
             text:
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-        Paragraph(
-            text:
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+            'The table below summarizes all the important information that the user has provided with informed consent'),
         Padding(padding: const EdgeInsets.all(10)),
         Table.fromTextArray(context: context, data: const <List<String>>[
-          <String>['Year', 'Ipsum', 'Lorem'],
-          <String>['2000', 'Ipsum 1.0', 'Lorem 1'],
-          <String>['2001', 'Ipsum 1.1', 'Lorem 2'],
-          <String>['2002', 'Ipsum 1.2', 'Lorem 3'],
-          <String>['2003', 'Ipsum 1.3', 'Lorem 4'],
-          <String>['2004', 'Ipsum 1.4', 'Lorem 5'],
-          <String>['2004', 'Ipsum 1.5', 'Lorem 6'],
-          <String>['2006', 'Ipsum 1.6', 'Lorem 7'],
-          <String>['2007', 'Ipsum 1.7', 'Lorem 8'],
-          <String>['2008', 'Ipsum 1.7', 'Lorem 9'],
+          <String>['Date Taken', 'Age', 'Gender', 'Heartbeat', 'Breathing Rate', 'Symptoms', 'Possible Causes'],
+          <String>['2000', 'Ipsum 1.0', 'Lorem 1','Ipsum 1.0', 'Lorem 1','Ipsum 1.0', 'Lorem 1', ],
+
+        ]),
+        Table.fromTextArray(context: context, data: const <List<String>>[
+          <String>['Unique Identifier',],
+          <String>['Code',],
+
         ]),
       ]));
 
